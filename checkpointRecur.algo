@@ -1,0 +1,68 @@
+//leap Year Checker
+
+FUNCTION isLeapYear(year : INTEGER) : BOOLEAN
+BEGIN
+    RETURN year%400 == 0 || (year%4 == 0 && year%100 != 0);
+END
+
+//Ticket Pricing
+
+FUNCTION PRICE(age : INTEGER) : INTEGER
+BEGIN
+    SWITCH (true) DO
+        CASE (age <= 12) : RETURN 10;
+        CASE (age <= 17) : RETURN 15;
+        DEFAULT : RETURN 20;
+    END_SWITCH
+END
+
+//Weather Clothing Adviser: Develop a program that asks the user for the current temperature and whether it is raining or not.Based on this information, advise the user on what clothing to wear.
+
+FUNCTION weatherAdviser(temp : INTEGER)
+BEGIN
+    IF (temp < 15) THEN
+        WRITE("it is raining. you should wear a coat");
+    ELSE 
+        WRITE("it is not raining. you should wear a jacket");
+    END_IF
+END
+
+//Recursion
+
+//Fibonacci Sequence
+
+FUNCTION fib(n : INTEGER) : INTEGER
+BEGIN
+    IF (n <= 1) THEN
+        RETURN n;
+    ELSE
+        RETURN fib(n-1) + fib(n-2);
+    END_IF
+END
+
+//Palindrome Checker
+
+FUNCTION checkPalindrome(s : STRING , i : INTEGER , n : INTEGER) : BOOLEAN
+BEGIN
+    IF (i >= n) THEN
+        RETURN TRUE;
+    END_IF
+    IF (s[i] != s[n-i-1]) THEN
+        RETURN FALSE;
+    END_IF
+    RETURN checkPalindrome(s, i+1, n-1);
+END
+
+//Power Function
+
+FUNCTION pow(a : INTEGER, b : INTEGER) : INTEGER
+BEGIN
+    IF (b == 0) THEN
+        RETURN 1;   
+    ELSE
+        IF (b > 0) THEN
+            RETURN a * pow(a, b-1);
+        ELSE RETURN 1/pow(a,b-1);
+        END_IF
+    END_IF
+END
